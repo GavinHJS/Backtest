@@ -11,7 +11,7 @@ Note:
 import backtrader as bt
 import sys
 
-sys.path.insert(1, "'D:\\Backtesting\\Data'")
+sys.path.insert(1, "'D:\\Backtest\\Data'")
 
 from EquityData import dataPreperation
 
@@ -20,6 +20,7 @@ class backEngine:
     def __init__(self , tickerData,date1 , date2 , frequency):
         self.data = dataPreperation(tickerData , date1,date2 , frequency).getHistoricalData()
         cerebro = bt.Cerebro()
+        
 
 
     # cerebro = bt.Cerebro()
