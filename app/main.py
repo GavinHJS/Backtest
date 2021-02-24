@@ -12,5 +12,4 @@ from Backengine import backEngine
 from EquityData import dataPreperation
 
 x =backEngine("AAPL" , "2020-01-01" , "2021-01-01", "1d" , 1000)
-
 x.activate()

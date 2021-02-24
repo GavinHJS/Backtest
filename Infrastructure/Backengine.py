@@ -25,6 +25,7 @@ class backEngine:
         self.data       = dataPreperation(tickerData , date1,date2 , frequency).getHistoricalData()
         self.notional   = notional 
         
+        
     def setEngine(self):
         self.cerebro     = bt.Cerebro()
         data             = bt.feeds.PandasData(dataname = self.data) 
@@ -35,13 +36,15 @@ class backEngine:
         print('Starting Portfolio Value: %.2f' % self.cerebro.broker.getvalue())
         self.cerebro.run()
         print('Final Portfolio Value: %.2f' % self.cerebro.broker.getvalue())
-    
+        
     def activate(self):
         self.setEngine()
         self.runEngine()
         
 if __name__ =="__main__":
     x = backEngine("MSFT" , "2020-01-01" , "2021-01-01", "1d" , 1000)
+    x.activate()
+    
     
     
     
