@@ -17,6 +17,7 @@ import matplotlib.pyplot as plt
 sys.path.insert(1, "..\\Backtest\\Data")
 
 from EquityData import dataPreperation
+from StrategyBase import MyStrategy
 import plotly
 
 class backEngine:
@@ -31,6 +32,7 @@ class backEngine:
         data             = bt.feeds.PandasData(dataname = self.data) 
         self.cerebro.adddata(data)
         self.cerebro.broker.set_cash(self.notional)
+        self.cerebro.addstrategy(MyStrategy)
         
     def runEngine(self):
         print('Starting Portfolio Value: %.2f' % self.cerebro.broker.getvalue())

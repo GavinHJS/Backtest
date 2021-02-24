@@ -7,7 +7,19 @@ Created on Wed Feb 24 13:38:41 2021
 
 import backtrader as bt
 
-class strategyBase(bt.Strategy):
+class MyStrategy(bt.Strategy):
+    lines = ('signal',)
     
-    def something():
-        print"flksdhkfdjs"
+    
+    def __init__(self):
+        self.sma = (self.data.close[0] + self.data.close[-1]) /2 
+
+    def next(self):
+        if self.sma > self.data.close:
+            # Do something
+            pass
+
+        elif self.sma < self.data.close:
+            # Do something else
+            pass
+        
