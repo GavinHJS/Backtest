@@ -6,20 +6,17 @@ Created on Wed Feb 24 13:38:41 2021
 """
 
 import backtrader as bt
-
+import backtrader.indicator as btind
 class MyStrategy(bt.Strategy):
     lines = ('signal',)
     
-    
+
     def __init__(self):
-        self.sma = (self.data.close[0] + self.data.close[-1]) /2 
-
-    def next(self):
-        if self.sma > self.data.close:
-            # Do something
-            pass
-
-        elif self.sma < self.data.close:
-            # Do something else
-            pass
+        self.sma = btind.SimpleMovingAverage(period = 15)
+        print(self.sma)
         
+            
+    def next(self):
+        # if self.data.close[0]> self.sma:
+        #     print("sheetboi")
+        print('Close:' , self.data.close[0])

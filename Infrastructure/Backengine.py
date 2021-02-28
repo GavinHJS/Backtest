@@ -25,8 +25,7 @@ class backEngine:
     def __init__(self , tickerData,date1 , date2 , frequency , notional ):
         self.data       = dataPreperation(tickerData , date1,date2 , frequency).getHistoricalData()
         self.notional   = notional 
-        
-        
+
     def setEngine(self):
         self.cerebro     = bt.Cerebro()
         data             = bt.feeds.PandasData(dataname = self.data) 
